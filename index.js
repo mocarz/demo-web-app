@@ -29,7 +29,7 @@ const exec = util.promisify(require('child_process').exec);
 
 app.get('/', async (req, res) => {
     // ls();
-    const { stdout, stderr } = await exec('ec2-metadata -i');
+    const { stdout, stderr } = await exec('ec2-metadata --public-ipv4');
     const str = `stdout: ${stdout}<br>stderr: ${stderr}`
     res.send(str)
 })
